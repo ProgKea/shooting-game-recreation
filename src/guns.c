@@ -14,6 +14,14 @@ void init_guns() {
   pistol.rect.y = HEIGHT/2;
   entity_create_texture(&pistol, "assets/PNG/pistol.png", renderer);
   Guns[0] = pistol;
+
+  Entity shotgun;
+  shotgun.rect.w = 403;
+  shotgun.rect.h = 116;
+  shotgun.rect.x = GUN_X;
+  shotgun.rect.y = HEIGHT/2;
+  entity_create_texture(&shotgun, "assets/PNG/shotgun.png", renderer);
+  Guns[1] = shotgun;
 }
 
 void render_active_gun() {

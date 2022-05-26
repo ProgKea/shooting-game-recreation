@@ -3,10 +3,11 @@
 
 #include "entity.h"
 
-#define GUN_AMOUNT 1
+#define GUN_AMOUNT 2
 
 enum Guns {
   Pistol = 0,
+  Shotgun = 1,
 };
 
 extern Entity Guns[GUN_AMOUNT];
