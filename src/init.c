@@ -6,6 +6,7 @@ SDL_Window *win = NULL;
 SDL_Renderer *renderer = NULL;
 
 void init_sdl2() {
+  Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2043);
   if (SDL_Init(SDL_INIT_EVERYTHING) > 0)
     fprintf(stderr, "Failed to init SDL: %s\n", SDL_GetError());
 

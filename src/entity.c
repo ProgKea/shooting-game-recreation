@@ -2,11 +2,12 @@
 
 void render_entity_texture(Entity entity, SDL_Renderer *renderer) {
   SDL_Point center;
-  center.x = entity.rect.w/2;
-  center.y = entity.rect.h/2;
+  center.x = entity.rect.w / 2;
+  center.y = entity.rect.h / 2;
 
   if (entity.texture != NULL)
-    SDL_RenderCopyEx(renderer, entity.texture, NULL, &entity.rect, entity.angle, &center, SDL_FLIP_NONE);
+    SDL_RenderCopyEx(renderer, entity.texture, NULL, &entity.rect, entity.angle,
+                     &center, SDL_FLIP_NONE);
 }
 
 void render_entity_rect(Entity entity, SDL_Renderer *renderer) {

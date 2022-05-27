@@ -17,7 +17,7 @@ int main() {
         aim_gun_pos(MouseX, MouseY, &Guns[active_gun]);
       }
       if (e.type == SDL_MOUSEBUTTONDOWN)
-        shoot_gun(MouseX, MouseY);
+        shoot_gun(MouseX, MouseY, Guns[active_gun]);
     }
     SDL_RenderClear(renderer);
 

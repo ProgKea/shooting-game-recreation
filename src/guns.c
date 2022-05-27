@@ -1,18 +1,23 @@
+#include "entity.h"
 #include "init.h"
 
 #define GUN_X 100
 
 Entity Guns[GUN_AMOUNT];
+Entity Bullet;
 
 unsigned int active_gun = Pistol;
 
 void init_guns() {
+  entity_create_texture(&Bullet, "assets/PNG/small_bullet.png", renderer);
+
   Entity pistol;
   pistol.rect.w = 104;
   pistol.rect.h = 83;
   pistol.rect.x = GUN_X;
   pistol.rect.y = HEIGHT / 2;
   entity_create_texture(&pistol, "assets/PNG/pistol.png", renderer);
+  pistol.shot_sound = Mix_LoadWAV("assets/sound/pistol.mp3");
   Guns[0] = pistol;
 
   Entity shotgun;
@@ -50,7 +55,8 @@ void render_active_gun() { render_entity_texture(Guns[active_gun], renderer); }
 
 void change_active_gun(unsigned int gun) { active_gun = gun; }
 
-void shoot_gun() {
+void shoot_gun(int x, int y, Entity gun) {
+  Mix_PlayChannel(-1, gun.shot_sound, 0);
 }
 
 void destroy_guns() {
