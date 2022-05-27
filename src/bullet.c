@@ -31,11 +31,7 @@ void render_active_bullets(SDL_Renderer *renderer) {
   }
 }
 
-void update_bullet(Entity Gun, int x, int y) {
-  for (int i = 0; i < MAX_BULLETS; i++) {
-    if (Bullets[i].active) {
-      Bullets[i].rect.x += Gun.speed * (cos(atan2(y, x)));
-      Bullets[i].rect.y += Gun.speed * (sin(atan2(y, x)));
-    }
-  }
+//TODO: implement this function
+void update_bullet() {
+  printf(":(\n");
 }

@@ -27,8 +27,6 @@ int main() {
 
     SDL_SetRenderDrawColor(renderer, 28, 28, 28, 255);
     SDL_RenderPresent(renderer);
-
-    update_bullet(Guns[active_gun]);
   }
 
   SDL_DestroyWindow(win);
