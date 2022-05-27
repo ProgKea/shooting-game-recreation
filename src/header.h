@@ -7,5 +7,6 @@
 
 #include "init.h"
 #include "entity.h"
+#include "bullet.h"
 
 #endif

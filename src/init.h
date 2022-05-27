@@ -6,7 +6,7 @@
 #include <SDL2/SDL_mixer.h>
 
 #include "guns.h"
-#include "menu.h"
+#include "bullet.h"
 
 #define HEIGHT 900
 #define WIDTH 900 * RESOLUTION

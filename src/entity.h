@@ -4,12 +4,15 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
+#include <stdbool.h>
 
 typedef struct Entity {
   SDL_Texture *texture;
   double angle;
   SDL_Rect rect;
   Mix_Chunk *shot_sound;
+  bool active;
+  int speed;
 } Entity;
 
 void render_entity_texture(Entity entity, SDL_Renderer *renderer);

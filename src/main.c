@@ -16,18 +16,23 @@ int main() {
         SDL_GetMouseState(&MouseX, &MouseY);
         aim_gun_pos(MouseX, MouseY, &Guns[active_gun]);
       }
-      if (e.type == SDL_MOUSEBUTTONDOWN)
+      if (e.type == SDL_MOUSEBUTTONDOWN) {
         shoot_gun(MouseX, MouseY, Guns[active_gun]);
+      }
     }
     SDL_RenderClear(renderer);
 
     render_active_gun();
+    render_active_bullets(renderer);
+
     SDL_SetRenderDrawColor(renderer, 28, 28, 28, 255);
     SDL_RenderPresent(renderer);
+
+    update_bullet(Guns[active_gun]);
   }
 
   SDL_DestroyWindow(win);
   SDL_DestroyRenderer(renderer);
-  destroy_guns();
+  destroy_guns(MouseX, MouseY);
   return 0;
 }
