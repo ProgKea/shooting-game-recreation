@@ -13,7 +13,7 @@ int main() {
       if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_ESCAPE)
         break;
       if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_e)
-        change_active_gun(Shotgun);
+        change_active_gun(Sniper);
       if (e.type == SDL_MOUSEMOTION) {
         SDL_GetMouseState(&MouseX, &MouseY);
         aim_gun_pos(MouseX, MouseY, &Guns[active_gun]);

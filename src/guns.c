@@ -16,12 +16,28 @@ void init_guns() {
   Guns[0] = pistol;
 
   Entity shotgun;
-  shotgun.rect.w = 403;
-  shotgun.rect.h = 116;
+  shotgun.rect.w = 200;
+  shotgun.rect.h = 50;
   shotgun.rect.x = GUN_X;
   shotgun.rect.y = HEIGHT / 2;
   entity_create_texture(&shotgun, "assets/PNG/shotgun.png", renderer);
   Guns[1] = shotgun;
+
+  Entity revolver;
+  revolver.rect.w = 119;
+  revolver.rect.h = 81;
+  revolver.rect.x = GUN_X;
+  revolver.rect.y = HEIGHT / 2;
+  entity_create_texture(&revolver, "assets/PNG/revolver.png", renderer);
+  Guns[2] = revolver;
+
+  Entity sniper;
+  sniper.rect.w = 198;
+  sniper.rect.h = 75;
+  sniper.rect.x = GUN_X;
+  sniper.rect.y = HEIGHT / 2;
+  entity_create_texture(&sniper, "assets/PNG/sniper.png", renderer);
+  Guns[3] = sniper;
 }
 
 void aim_gun_pos(double x, double y, Entity *Gun) {

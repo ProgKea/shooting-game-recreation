@@ -5,11 +5,13 @@
 
 #include "entity.h"
 
-#define GUN_AMOUNT 2
+#define GUN_AMOUNT 4
 
 enum Guns {
   Pistol = 0,
   Shotgun = 1,
+  Revolver = 2,
+  Sniper = 3,
 };
 
 extern Entity Guns[GUN_AMOUNT];
@@ -22,4 +24,4 @@ void aim_gun_pos(double x, double y, Entity *Gun);
 void shoot_gun();
 void destroy_guns();
 
-#endif 
+#endif
