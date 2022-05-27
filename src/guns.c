@@ -51,8 +51,6 @@ void render_active_gun() { render_entity_texture(Guns[active_gun], renderer); }
 void change_active_gun(unsigned int gun) { active_gun = gun; }
 
 void shoot_gun() {
-  // TODO: shoot gun at given coordinates (x, y)
-  printf("TODO\n");
 }
 
 void destroy_guns() {
