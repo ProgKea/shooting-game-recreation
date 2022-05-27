@@ -18,7 +18,7 @@ void init_sdl2() {
   if (win == NULL)
     fprintf(stderr, "Failed to create window: %s\n", SDL_GetError());
 
-  renderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
+  renderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_PRESENTVSYNC);
   if (renderer == NULL)
     fprintf(stderr, "Failed to create renderer: %s\n", SDL_GetError());
 

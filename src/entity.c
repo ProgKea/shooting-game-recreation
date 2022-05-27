@@ -4,8 +4,6 @@ void render_entity_texture(Entity entity, SDL_Renderer *renderer) {
   SDL_Point center;
   center.x = entity.rect.w/2;
   center.y = entity.rect.h/2;
-  center.x += entity.rect.x;
-  center.y += entity.rect.y;
 
   if (entity.texture != NULL)
     SDL_RenderCopyEx(renderer, entity.texture, NULL, &entity.rect, entity.angle, &center, SDL_FLIP_NONE);

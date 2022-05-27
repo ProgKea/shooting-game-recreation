@@ -14,5 +14,6 @@ void render_entity_texture(Entity entity, SDL_Renderer *renderer);
 void render_entity_rect(Entity entity, SDL_Renderer *renderer);
 void entity_create_texture(Entity *entity, const char *image_path,
                            SDL_Renderer *renderer);
+void destroy_entity(Entity *entity);
 
 #endif
