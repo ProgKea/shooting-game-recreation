@@ -8,9 +8,9 @@
 
 #define MAX_CRATES 10
 #define CRATE_GAP 100
-#define CRATE_Y 810
+#define CRATE_Y 800
 
-void reset_crates(SDL_Renderer *renderer, int startx);
+void create_crates(SDL_Renderer *renderer, int startx);
 void render_crates(SDL_Renderer *renderer);
 
 #endif

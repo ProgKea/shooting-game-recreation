@@ -2,7 +2,7 @@
 
 Entity Crates[MAX_CRATES];
 
-void reset_crates(SDL_Renderer *renderer, int startx) {
+void create_crates(SDL_Renderer *renderer, int startx) {
   Entity crate;
 
   entity_create_texture(&crate, "assets/PNG/crate.png", renderer);

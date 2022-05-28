@@ -1,12 +1,9 @@
-#include "crate.h"
 #include "header.h"
-#include "init.h"
 
 int MouseX, MouseY;
 
 int main() {
   init_sdl2();
-  reset_crates(renderer, WIDTH/2 + 100);
 
   while (1) {
     SDL_Event e;
@@ -21,6 +18,7 @@ int main() {
       }
       if (e.type == SDL_MOUSEBUTTONDOWN) {
         shoot_gun(MouseX, MouseY, Guns[active_gun]);
+        create_crates(renderer, 200);
       }
     }
     SDL_RenderClear(renderer);
