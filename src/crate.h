@@ -2,7 +2,6 @@
 #define CRATE_H
 
 #include <SDL2/SDL.h>
-#include <assert.h>
 #include <stdlib.h>
 
 #include "entity.h"

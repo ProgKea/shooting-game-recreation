@@ -59,8 +59,6 @@ void change_active_gun(unsigned int gun) { active_gun = gun; }
 
 void shoot_gun(int x, int y, Entity Gun, Entity *Bullet) {
   Mix_PlayChannel(-1, Gun.shot_sound, 0);
-
-  create_new_bullet(x, y, Gun, renderer);
 }
 
 void destroy_guns() {

@@ -6,7 +6,6 @@
 #include <SDL2/SDL_mixer.h>
 
 #include "guns.h"
-#include "bullet.h"
 #include "crate.h"
 
 #define HEIGHT 900

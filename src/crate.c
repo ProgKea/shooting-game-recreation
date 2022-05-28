@@ -1,5 +1,4 @@
 #include "crate.h"
-#include "entity.h"
 
 Entity Crates[MAX_CRATES];
 
@@ -29,7 +28,6 @@ void create_crates(SDL_Renderer *renderer, int startx) {
 int rand_range(int low, int high) { return low + (rand() % (high - low)); }
 
 void bounce_crates(int count) {
-  assert(count <= MAX_CRATES);
   for (int i = 0; i < count; i++) {
     Crates[rand_range(0, MAX_CRATES)].vel_y = (float)rand_range(-15, -1);
   }
@@ -50,6 +48,7 @@ void apply_gravity() {
 void update_crates(SDL_Renderer *renderer) {
   apply_gravity();
   timer_current += 0.1;
+  // I hope I dont need delta time because of vsync
   if (timer_current >= jump_timer) {
     bounce_crates(2);
     timer_current -= jump_timer;

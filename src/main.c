@@ -25,7 +25,6 @@ int main() {
 
     update_crates(renderer);
     render_active_gun();
-    render_active_bullets(renderer);
 
     SDL_SetRenderDrawColor(renderer, 28, 28, 28, 255);
     SDL_RenderPresent(renderer);
@@ -35,5 +34,6 @@ int main() {
   SDL_DestroyRenderer(renderer);
   destroy_guns();
   destroy_crates();
+
   return 0;
 }
