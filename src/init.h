@@ -7,6 +7,7 @@
 
 #include "guns.h"
 #include "bullet.h"
+#include "crate.h"
 
 #define HEIGHT 900
 #define RESOLUTION 16 / 9

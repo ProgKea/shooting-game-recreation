@@ -13,6 +13,7 @@ typedef struct Entity {
   Mix_Chunk *shot_sound;
   bool active;
   int speed;
+  float vel_y;
 } Entity;
 
 void render_entity_texture(Entity entity, SDL_Renderer *renderer);

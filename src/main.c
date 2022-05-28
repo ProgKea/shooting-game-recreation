@@ -1,3 +1,4 @@
+#include "crate.h"
 #include "header.h"
 
 int MouseX, MouseY;
@@ -18,12 +19,13 @@ int main() {
       }
       if (e.type == SDL_MOUSEBUTTONDOWN) {
         shoot_gun(MouseX, MouseY, Guns[active_gun]);
-        create_crates(renderer, 200);
       }
+      if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_e)
+        bounce_crates(5);
     }
     SDL_RenderClear(renderer);
 
-    render_crates(renderer);
+    update_crates(renderer);
     render_active_gun();
     render_active_bullets(renderer);
 
