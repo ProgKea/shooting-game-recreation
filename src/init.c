@@ -1,7 +1,5 @@
 #include "init.h"
 
-#define RESOLUTION 16 / 9
-
 SDL_Window *win = NULL;
 SDL_Renderer *renderer = NULL;
 

@@ -1,9 +1,12 @@
+#include "crate.h"
 #include "header.h"
+#include "init.h"
 
 int MouseX, MouseY;
 
 int main() {
   init_sdl2();
+  reset_crates(renderer, WIDTH/2 + 100);
 
   while (1) {
     SDL_Event e;
@@ -22,6 +25,7 @@ int main() {
     }
     SDL_RenderClear(renderer);
 
+    render_crates(renderer);
     render_active_gun();
     render_active_bullets(renderer);
 

@@ -9,6 +9,7 @@
 #include "bullet.h"
 
 #define HEIGHT 900
+#define RESOLUTION 16 / 9
 #define WIDTH 900 * RESOLUTION
 
 extern SDL_Window *win;
