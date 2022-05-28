@@ -1,8 +1,11 @@
 #include "crate.h"
+#include "entity.h"
 
 Entity Crates[MAX_CRATES];
 
-const float GRAVITY = 0.10;
+const float GRAVITY = 0.10f;
+float jump_timer = 50.0f;
+float timer_current = 0.0f;
 
 void create_crates(SDL_Renderer *renderer, int startx) {
   Entity crate;
@@ -28,7 +31,7 @@ int rand_range(int low, int high) { return low + (rand() % (high - low)); }
 void bounce_crates(int count) {
   assert(count <= MAX_CRATES);
   for (int i = 0; i < count; i++) {
-    Crates[rand_range(0, MAX_CRATES)].vel_y = (float)rand_range(-10, 0);
+    Crates[rand_range(0, MAX_CRATES)].vel_y = (float)rand_range(-15, -1);
   }
 }
 
@@ -46,8 +49,19 @@ void apply_gravity() {
 
 void update_crates(SDL_Renderer *renderer) {
   apply_gravity();
+  timer_current += 0.1;
+  if (timer_current >= jump_timer) {
+    bounce_crates(2);
+    timer_current -= jump_timer;
+  }
 
   for (int i = 0; i < MAX_CRATES; i++) {
     render_entity_texture(Crates[i], renderer);
+  }
+}
+
+void destroy_crates() {
+  for (int i = 0; i < MAX_CRATES; i++) {
+    destroy_entity(&Crates[i]);
   }
 }

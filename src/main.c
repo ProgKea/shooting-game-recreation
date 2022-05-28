@@ -1,4 +1,3 @@
-#include "crate.h"
 #include "header.h"
 
 int MouseX, MouseY;
@@ -17,11 +16,10 @@ int main() {
         SDL_GetMouseState(&MouseX, &MouseY);
         aim_gun_pos(MouseX, MouseY, &Guns[active_gun]);
       }
-      if (e.type == SDL_MOUSEBUTTONDOWN) {
+      if (e.type == SDL_MOUSEBUTTONDOWN ||
+          (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_SPACE)) {
         shoot_gun(MouseX, MouseY, Guns[active_gun]);
       }
-      if (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_e)
-        bounce_crates(5);
     }
     SDL_RenderClear(renderer);
 
@@ -35,6 +33,7 @@ int main() {
 
   SDL_DestroyWindow(win);
   SDL_DestroyRenderer(renderer);
-  destroy_guns(MouseX, MouseY);
+  destroy_guns();
+  destroy_crates();
   return 0;
 }
