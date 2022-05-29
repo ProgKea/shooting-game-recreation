@@ -1,5 +1,4 @@
 #include "init.h"
-#include "crate.h"
 
 SDL_Window *win = NULL;
 SDL_Renderer *renderer = NULL;
@@ -23,5 +22,6 @@ void init_sdl2() {
     fprintf(stderr, "Failed to create renderer: %s\n", SDL_GetError());
 
   init_guns();
+  init_score(renderer);
   create_crates(renderer, 200);
 }

@@ -5,15 +5,16 @@
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_mixer.h>
 
-#include "guns.h"
 #include "crate.h"
+#include "guns.h"
+#include "score.h"
 
 #define HEIGHT 900
 #define RESOLUTION 16 / 9
 #define WIDTH 900 * RESOLUTION
 
 extern SDL_Window *win;
-extern SDL_Renderer * renderer;
+extern SDL_Renderer *renderer;
 
 void init_sdl2();
 

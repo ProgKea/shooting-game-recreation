@@ -16,7 +16,7 @@ void init_guns() {
 
   entity_create_texture(&pistol, "assets/PNG/pistol.png", renderer);
 
-  pistol.shot_sound = Mix_LoadWAV("assets/sound/pistol.mp3");
+  pistol.sound = Mix_LoadWAV("assets/sound/pistol.mp3");
 
   pistol.speed = 2;
 
@@ -58,7 +58,17 @@ void render_active_gun() { render_entity_texture(Guns[active_gun], renderer); }
 void change_active_gun(unsigned int gun) { active_gun = gun; }
 
 void shoot_gun(int x, int y, Entity Gun, Entity *Bullet) {
-  Mix_PlayChannel(-1, Gun.shot_sound, 0);
+  Mix_PlayChannel(-1, Gun.sound, 0);
+  SDL_Point mouse_pos = {
+    .x = x,
+    .y = y,
+  };
+
+  for (int i = 0; i < MAX_CRATES; i++) {
+    if (SDL_PointInRect(&mouse_pos, &Crates[i].rect)) {
+      hit_crate(&Crates[i]);
+    }
+  }
 }
 
 void destroy_guns() {

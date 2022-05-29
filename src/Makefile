@@ -13,6 +13,9 @@ ${PROJECT}: ${DEPENDENCIES}
 cross: ${DEPENDENCIES}
 	${CC_CROSS} ${CFLAGS} ${CFLAGS_CROSS} ${DEPENDENCIES} -o ../build/windows/${PROJECT} ${LIBS}
 
+opt: ${DEPENDENCIES}
+	${CC} ${CFLAGS} ${OPT_FLAGS} ${DEPENDENCIES} -o ../build/${PROJECT} ${LIBS}
+
 release: ${DEPENDENCIES}
 	${CC} ${CFLAGS} ${OPT_FLAGS} *.c -o ../build/${PROJECT} ${LIBS} && ${CC_CROSS} ${CFLAGS} ${CFLAGS_CROSS} ${OPT_FLAGS} ${DEPENDENCIES} -o ../build/windows/${PROJECT} ${LIBS}
 

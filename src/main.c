@@ -1,4 +1,6 @@
 #include "header.h"
+#include "init.h"
+#include "score.h"
 
 int MouseX, MouseY;
 
@@ -23,6 +25,7 @@ int main() {
     }
     SDL_RenderClear(renderer);
 
+    render_score(renderer, 50, 50, 50, WIDTH/2, HEIGHT/2);
     update_crates(renderer);
     render_active_gun();
 

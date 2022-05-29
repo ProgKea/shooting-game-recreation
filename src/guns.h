@@ -3,6 +3,7 @@
 
 #include <math.h>
 
+#include "crate.h"
 #include "entity.h"
 
 #define GUN_AMOUNT 4

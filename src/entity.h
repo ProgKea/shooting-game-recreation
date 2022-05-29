@@ -10,7 +10,7 @@ typedef struct Entity {
   SDL_Texture *texture;
   double angle;
   SDL_Rect rect;
-  Mix_Chunk *shot_sound;
+  Mix_Chunk *sound;
   bool active;
   int speed;
   float vel_y;

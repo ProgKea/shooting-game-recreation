@@ -3,8 +3,13 @@
 Entity Crates[MAX_CRATES];
 
 const float GRAVITY = 0.10f;
-float jump_timer = 50.0f;
-float timer_current = 0.0f;
+float jump_timer = 25.0f;
+float jump_timer_current = 0.0f;
+
+const float MIN_JUMP_TIMER = 10.0f;
+float difficulty_timer = 250.0f;
+float difficulty_timer_current = 0.0f;
+int bounce_count = 1;
 
 void create_crates(SDL_Renderer *renderer, int startx) {
   Entity crate;
@@ -29,7 +34,18 @@ int rand_range(int low, int high) { return low + (rand() % (high - low)); }
 
 void bounce_crates(int count) {
   for (int i = 0; i < count; i++) {
-    Crates[rand_range(0, MAX_CRATES)].vel_y = (float)rand_range(-15, -1);
+    int random_crate = rand_range(0, MAX_CRATES);
+    if (Crates[random_crate].rect.y == CRATE_Y) {
+      Crates[random_crate].vel_y = (float)rand_range(-15, -2);
+    }
+  }
+}
+
+void update_difficulty() {
+  difficulty_timer_current += 0.1;
+  if (difficulty_timer_current >= difficulty_timer && bounce_count <= MAX_CRATES) {
+    bounce_count++;
+    difficulty_timer_current -= difficulty_timer;
   }
 }
 
@@ -45,18 +61,30 @@ void apply_gravity() {
   }
 }
 
-void update_crates(SDL_Renderer *renderer) {
-  apply_gravity();
-  timer_current += 0.1;
-  // I hope I dont need delta time because of vsync
-  if (timer_current >= jump_timer) {
-    bounce_crates(2);
-    timer_current -= jump_timer;
-  }
-
+void render_crates(SDL_Renderer *renderer) {
   for (int i = 0; i < MAX_CRATES; i++) {
     render_entity_texture(Crates[i], renderer);
   }
+}
+
+void update_crates(SDL_Renderer *renderer) {
+  apply_gravity();
+  jump_timer_current += 0.1;
+  // I hope I dont need delta time because of vsync
+  update_difficulty();
+
+  if (jump_timer_current >= jump_timer) {
+    bounce_crates(bounce_count);
+    jump_timer_current -= jump_timer;
+  }
+
+  render_crates(renderer);
+}
+
+void hit_crate(Entity *crate) {
+  // TODO: increase score
+  crate->rect.y = CRATE_Y;
+  increase_score();
 }
 
 void destroy_crates() {
