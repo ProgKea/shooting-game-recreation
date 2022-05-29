@@ -5,6 +5,7 @@
 Entity Guns[GUN_AMOUNT];
 
 unsigned int active_gun = Pistol;
+bool can_shoot = true;
 
 void init_guns() {
   Entity pistol;
@@ -58,16 +59,19 @@ void render_active_gun() { render_entity_texture(Guns[active_gun], renderer); }
 void change_active_gun(unsigned int gun) { active_gun = gun; }
 
 void shoot_gun(int x, int y, Entity Gun, Entity *Bullet) {
-  Mix_PlayChannel(-1, Gun.sound, 0);
-  SDL_Point mouse_pos = {
-    .x = x,
-    .y = y,
-  };
+  if (can_shoot) {
+    Mix_PlayChannel(-1, Gun.sound, 0);
+    SDL_Point mouse_pos = {
+        .x = x,
+        .y = y,
+    };
 
-  for (int i = 0; i < MAX_CRATES; i++) {
-    if (SDL_PointInRect(&mouse_pos, &Crates[i].rect)) {
-      hit_crate(&Crates[i]);
+    for (int i = 0; i < MAX_CRATES; i++) {
+      if (SDL_PointInRect(&mouse_pos, &Crates[i].rect)) {
+        hit_crate(&Crates[i]);
+      }
     }
+    can_shoot = false;
   }
 }
 

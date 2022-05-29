@@ -16,6 +16,7 @@ enum Guns {
 };
 
 extern Entity Guns[GUN_AMOUNT];
+extern bool can_shoot;
 extern unsigned int active_gun;
 
 void init_guns();

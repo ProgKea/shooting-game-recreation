@@ -1,6 +1,4 @@
 #include "header.h"
-#include "init.h"
-#include "score.h"
 
 int MouseX, MouseY;
 
@@ -22,10 +20,14 @@ int main() {
           (e.type == SDL_KEYDOWN && e.key.keysym.sym == SDLK_SPACE)) {
         shoot_gun(MouseX, MouseY, Guns[active_gun]);
       }
+      if (e.type == SDL_MOUSEBUTTONUP ||
+          (e.type == SDL_KEYUP && e.key.keysym.sym == SDLK_SPACE)) {
+        can_shoot = true;
+      }
     }
     SDL_RenderClear(renderer);
 
-    render_score(renderer, 50, 50, 50, WIDTH/2, HEIGHT/2);
+    render_score(renderer, 50, 50, 50, (float)WIDTH / 2, (float)HEIGHT / 2);
     update_crates(renderer);
     render_active_gun();
 

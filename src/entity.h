@@ -11,9 +11,9 @@ typedef struct Entity {
   double angle;
   SDL_Rect rect;
   Mix_Chunk *sound;
-  bool active;
   int speed;
   float vel_y;
+  bool active;
 } Entity;
 
 void render_entity_texture(Entity entity, SDL_Renderer *renderer);
