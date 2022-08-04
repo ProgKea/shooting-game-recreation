@@ -24,4 +24,8 @@ void entity_create_texture(Entity *entity, const char *image_path,
   SDL_FreeSurface(img_surface);
 }
 
-void destroy_entity(Entity *entity) { SDL_DestroyTexture(entity->texture); }
+void destroy_entity(Entity *entity) { 
+  SDL_DestroyTexture(entity->texture); 
+  if (entity->sound != NULL)
+    Mix_FreeChunk(entity->sound);
+}
