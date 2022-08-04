@@ -9,4 +9,4 @@ The game gets more difficult over time.
 
 <img src="demo.gif">
 
-The cursor is not shown.
+The cursor is not shown in the recording.
