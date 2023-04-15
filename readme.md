@@ -1,7 +1,6 @@
-# Bad Game
+# Shooting game recreation
 
-This is a recreation of a game made by a guy from tiktok.
-
+This is a recreation of a game I saw online.
 You play the game by clicking on the crates.
 The game gets more difficult over time.
 
